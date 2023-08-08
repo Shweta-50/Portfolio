@@ -4,13 +4,15 @@ import projImg1 from "../assets/img/epiceats.png";
 import projImg2 from "../assets/img/youtube.png";
 import projImg3 from "../assets/img/google.png";
 import projImg4 from "../assets/img/shoppingcart.png";
+import projImg5 from "../assets/img/recipe.png";
 import firebase from "../assets/icons/firebase.png";
 import google from "../assets/icons/google.png";
 import react from "../assets/icons/react.png";
 import github from "../assets/icons/github.png";
 import bootstrap from "../assets/icons/bootstrap.png";
 import tailwind from "../assets/icons/tailwind.png";
-import youtube from "../assets/icons/tailwind.png";
+import youtube from "../assets/icons/youtube.png";
+import redux from "../assets/icons/redux.png";
 
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -32,6 +34,13 @@ export const Projects = () => {
       link: "https://s-youtube-clone.netlify.app",
     },
     {
+      title: "RecipeHub",
+      description: "Recipe Search Platform",
+      imgUrl: projImg5,
+      technologies: [react, redux, tailwind, firebase],
+      link: "https://app-recipe-hub.netlify.app/",
+    },
+    {
       title: "Google Clone",
       description: "Information Search Platform.",
       imgUrl: projImg3,
@@ -45,21 +54,6 @@ export const Projects = () => {
       technologies: [bootstrap, react, github],
       link: "https://react-shop-cart-app.netlify.app",
     },
-    // {
-    //   title: "Business Startup",
-    //   description: "Design & Development",
-    //   imgUrl: projImg1,
-    // },
-    // {
-    //   title: "Business Startup",
-    //   description: "Design & Development",
-    //   imgUrl: projImg2,
-    // },
-    // {
-    //   title: "Business Startup",
-    //   description: "Design & Development",
-    //   imgUrl: projImg3,
-    // },
   ];
 
   return (

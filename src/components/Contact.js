@@ -6,6 +6,11 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 export const Contact = () => {
   const [emailSend, setEmailSend] = useState("");
+  const [contact, setContact] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -29,6 +34,25 @@ export const Contact = () => {
         }
       );
   };
+  const InputHandler = (e) => {
+    setContact({
+      ...contact,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const SendDetail = (e) => {
+    e.preventDefault();
+    setEmailSend("Email has been send. We will connect you soon.");
+    setContact({
+      user_name: "",
+      user_email: "",
+      message: "",
+    });
+    setTimeout(() => {
+      setEmailSend("");
+    }, 3000);
+  };
 
   return (
     <section className="contact pt-6 px-2" id="connect">
@@ -44,13 +68,15 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <div className={"animate__animated animate__fadeIn"}>
               <h2>Get In Touch</h2>
-              <form ref={form} onSubmit={sendEmail}>
+              <form ref={form}>
                 <Row>
                   <Col size={12} sm={6} className="px-1">
                     <input
                       type="text"
+                      onChange={InputHandler}
                       placeholder="First Name"
                       name="user_name"
+                      value={contact.user_name}
                     />
                   </Col>
 
@@ -58,6 +84,8 @@ export const Contact = () => {
                     <input
                       type="email"
                       name="user_email"
+                      value={contact.user_email}
+                      onChange={InputHandler}
                       placeholder="Email Address"
                     />
                   </Col>
@@ -65,10 +93,16 @@ export const Contact = () => {
                     <textarea
                       rows="6"
                       name="message"
+                      value={contact.message}
+                      onChange={InputHandler}
                       placeholder="Message"
                     ></textarea>
 
-                    <button className="send-btn" type="submit">
+                    <button
+                      className="send-btn"
+                      type="submit"
+                      onClick={SendDetail}
+                    >
                       <span>Send</span>
                     </button>
                   </Col>
